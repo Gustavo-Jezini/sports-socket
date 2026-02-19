@@ -1,0 +1,21 @@
+GET http://localhost:8000/matches
+
+### Create a new match
+POST http://localhost:8000/matches
+Content-Type: application/json
+
+{
+  "sport": "Soccer",
+  "homeTeam": "Team A",
+  "awayTeam": "Team B",
+  "startTime": "2026-02-01T12:00:00.000Z",
+  "endTime": "2026-02-01T14:00:00.000Z"
+}
+
+# {
+#   "sport": "Cricket",
+#   "homeTeam": "Team C",
+#   "awayTeam": "Team D",
+#   "startTime": "2026-02-01T12:00:00.000Z",
+#   "endTime": "2026-02-01T14:00:00.000Z"
+# }
