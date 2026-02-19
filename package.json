@@ -1,9 +1,9 @@
 {
   "name": "websockets",
   "version": "1.0.0",
-  "description": "npm i ws npm i --save-dev @types/node @types/ws",
+  "description": "A real-time sports API with WebSocket support.",
   "type": "module",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
