@@ -1,4 +1,5 @@
 import express from 'express';
+import { matchRouter } from './routes/matches.js';
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -6,6 +7,7 @@ const PORT = process.env.PORT || 8000;
 // Middleware
 app.use(express.json());
 
+app.use('/matches', matchRouter)
 // Routes
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to the Sports Socket API! 🚀' });

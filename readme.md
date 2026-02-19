@@ -1,0 +1,27 @@
+npm i ws
+npm i --save-dev @types/node @types/ws
+
+sudo npm i -g wscat
+wscat -c ws://localhost:8080
+
+criar conta em conectar com psql https://neon.com/docs/guides/drizzle
+[Projects](https://console.neon.tech/app/projects)  -> dashboard -> connect
+
+## WebSocktes + Rest
+-  Nessa aplição e no mundo real, websockets não substituem api Rest, elas se complementam
+
+### Rest
+- Create the match
+- Fetches the list of matches
+- Load the app for the first time
+
+### WebSocket
+- Match created
+- Score updated
+- Commenttary added
+- Live events pushed instantly
+
+
+npm i zod
+
+para validar todos os dados recebidos do front end
