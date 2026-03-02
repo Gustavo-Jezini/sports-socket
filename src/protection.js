@@ -26,7 +26,7 @@ export function isBadBot(req) {
 // 3. Middleware for Express/HTTP
 export function securityMiddleware() {
   return async (req, res, next) => {
-    const ip = req.ip || req.connection.remoteAddress;
+    const ip = req.ip || (req.socket && req.socket.remoteAddress);
 
     try {
         // Block Bots
