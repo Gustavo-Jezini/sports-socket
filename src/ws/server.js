@@ -1,4 +1,5 @@
 import { WebSocket, WebSocketServer } from "ws";
+import { isBadBot, wsLimiter } from "../protection.js";
 
 function sendJson(socket, payload) {
   if (socket.readyState !== WebSocket.OPEN) return;
@@ -16,9 +17,32 @@ function broadcast(wss, payload) {
 
 export function attachWebSocketServer(server) {
   const wss = new WebSocketServer({ 
-    server,
+    noServer: true,
     path: "/ws",
     maxPayload: 1024 * 1024, // 1 MB
+  });
+
+  server.on('upgrade', async (req, socket, head) => {
+      const ip = req.socket.remoteAddress;
+
+      try {
+          if (isBadBot(req)) {
+              socket.write('HTTP/1.1 403 Forbidden\r\n\r\n');
+              socket.destroy();
+              return;
+          }
+
+          await wsLimiter.consume(ip);
+
+          wss.handleUpgrade(req, socket, head, (ws) => {
+              wss.emit('connection', ws, req);
+          });
+
+      } catch (e) {
+          wss.handleUpgrade(req, socket, head, (ws) => {
+              ws.close(1008, 'Rate limit exceeded. Try again later.');
+          });
+      }
   });
 
 
