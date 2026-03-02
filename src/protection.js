@@ -30,9 +30,9 @@ export function securityMiddleware() {
 
     try {
         // Block Bots
-        // if (isBadBot(req)) {
-        //     return res.status(403).json({ error: 'Bots are not allowed.' });
-        // }
+        if (isBadBot(req)) {
+            return res.status(403).json({ error: 'Bots are not allowed.' });
+        }
 
         // Apply Rate Limit
         await httpLimiter.consume(ip);
