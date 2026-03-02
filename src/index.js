@@ -2,6 +2,7 @@ import express from 'express';
 import http from 'http';
 import helmet from 'helmet';
 import { matchRouter } from './routes/matches.js';
+import { commentaryRouter } from './routes/commentary.js';
 import { attachWebSocketServer } from './ws/server.js'
 import { securityMiddleware } from './protection.js';
 
@@ -17,8 +18,9 @@ app.use(express.json());
 
 app.use(securityMiddleware());
 
-app.use('/matches', matchRouter)
 // Routes
+app.use('/matches', matchRouter)
+app.use('/matches/:id/commentaries', commentaryRouter)
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to the Sports Socket API! 🚀' });
 });

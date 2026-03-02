@@ -12,10 +12,26 @@ Content-Type: application/json
   "endTime": "2026-02-01T14:00:00.000Z"
 }
 
-# {
-#   "sport": "Cricket",
-#   "homeTeam": "Team C",
-#   "awayTeam": "Team D",
-#   "startTime": "2026-02-01T12:00:00.000Z",
-#   "endTime": "2026-02-01T14:00:00.000Z"
-# }
+### List commentaries by match
+GET http://localhost:8000/matches/1/commentaries
+
+### Create a new commentary
+POST http://localhost:8000/matches/1/commentaries
+Content-Type: application/json
+
+{
+  "matchId": 1,
+  "minute": 23,
+  "sequence": 1,
+  "period": "first_half",
+  "eventType": "goal",
+  "actor": "Cristiano Ronaldo",
+  "team": "Real Madrid",
+  "message": "Goool! Cristiano Ronaldo chuta no canto esquerdo e marca o primeiro gol da partida!",
+  "metadata": {
+    "assistedBy": "Benzema",
+    "shotType": "left_foot"
+  },
+  "tags": ["goal", "first_half", "important"]
+}
+
