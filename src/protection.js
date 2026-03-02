@@ -13,7 +13,7 @@ export const wsLimiter = new RateLimiterMemory({
 });
 
 // 2. Bot Detection Function
-function isBadBot(req) {
+export function isBadBot(req) {
     const ua = req.headers['user-agent'] || '';
     // isbot identifies if it's a bot.
     // Here we allow known crawlers and block the rest if necessary.

@@ -1,5 +1,5 @@
 import { WebSocket, WebSocketServer } from "ws";
-import { wsLimiter } from "../protection.js";
+import { isBadBot, wsLimiter } from "../protection.js";
 
 function sendJson(socket, payload) {
   if (socket.readyState !== WebSocket.OPEN) return;
