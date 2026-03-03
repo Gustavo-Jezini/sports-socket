@@ -25,8 +25,9 @@ app.get('/', (req, res) => {
   res.json({ message: 'Welcome to the Sports Socket API! 🚀' });
 });
 
-const { broadcastMatchCreated } = attachWebSocketServer(server);
+const { broadcastMatchCreated, broadcastCommentary } = attachWebSocketServer(server);
 app.locals.broadcastMatchCreated = broadcastMatchCreated;
+app.locals.broadcastCommentary = broadcastCommentary;
 
 // Start server
 server.listen(PORT, HOST, () => {
