@@ -1,0 +1,17 @@
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.dockerignore
+Dockerfile
+docker-compose.yml
+.git
+.gitignore
+.env
+
+# local artifacts
+coverage
+*.log
+
+# drizzle studio/meta snapshots (optional)
+drizzle/meta
