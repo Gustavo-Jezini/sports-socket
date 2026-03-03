@@ -13,5 +13,4 @@ docker-compose.yml
 coverage
 *.log
 
-# drizzle studio/meta snapshots (optional)
-drizzle/meta
+# drizzle migrations/meta precisam ir pro build (drizzle-kit migrate usa meta/_journal.json)
