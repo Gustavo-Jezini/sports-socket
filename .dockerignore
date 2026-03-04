@@ -1,0 +1,16 @@
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.dockerignore
+Dockerfile
+docker-compose.yml
+.git
+.gitignore
+.env
+
+# local artifacts
+coverage
+*.log
+
+# drizzle migrations/meta precisam ir pro build (drizzle-kit migrate usa meta/_journal.json)

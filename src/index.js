@@ -16,11 +16,16 @@ app.use(helmet());
 // Middleware
 app.use(express.json());
 
-app.use(securityMiddleware());
+// app.use(securityMiddleware());
 
 // Routes
 app.use('/matches', matchRouter)
 app.use('/matches/:id/commentaries', commentaryRouter)
+
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
+
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to the Sports Socket API! 🚀' });
 });
